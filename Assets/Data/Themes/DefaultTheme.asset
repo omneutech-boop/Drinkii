@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba19234f2efd474494a06f0ed652715, type: 3}
+  m_Name: DefaultTheme
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
+  themeName: Default
+  wallSprite: {fileID: 3129998059859386450, guid: ea0b34253e31e9e44a1ecd2fb927282c, type: 3}
+  powerUpPanelSprite: {fileID: -185866397404839953, guid: 948721068c2c4914ab85d516a252a51a, type: 3}
+  ingredientPanelSprite: {fileID: 6963632049758755024, guid: 2c1067c1ba2f15946b8568cbea402562, type: 3}

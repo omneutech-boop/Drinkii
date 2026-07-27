@@ -1,0 +1,1 @@
+C:\Users\acer\OneDrive\Desktop\PlayNai Games\Mobile Games\Drinkii Game\Drinkii\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\6c5ry94n\obj\arm64-v8a

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e068358cc75104894178135de6882c, type: 3}
+  m_Name: LevelOne_Recipe
+  m_EditorClassIdentifier: Assembly-CSharp::DrinkRecipe
+  drinkName: Vanilla Milkshake
+  requiredIngredients:
+  - ingredient: {fileID: 11400000, guid: aefee2c3d5775234ea21c32125b7399d, type: 2}
+    amountNeeded: 1
+  - ingredient: {fileID: 11400000, guid: a4bc82de4af31f64bb0102b734ae3fc3, type: 2}
+    amountNeeded: 1
+  - ingredient: {fileID: 11400000, guid: 5723b6f2cab1ce04e94c002694b10192, type: 2}
+    amountNeeded: 1
+  - ingredient: {fileID: 11400000, guid: 87e0a6412251b014fb4b387f1f1cbc43, type: 2}
+    amountNeeded: 1
+  cupFillStages:
+  - {fileID: -4192745523157680713, guid: 79e905b77f965f34c96da8eb60601637, type: 3}
+  - {fileID: -2553638955800927653, guid: 79e905b77f965f34c96da8eb60601637, type: 3}
+  - {fileID: 2028533772781552331, guid: 79e905b77f965f34c96da8eb60601637, type: 3}
+  - {fileID: 4653328365410973519, guid: 79e905b77f965f34c96da8eb60601637, type: 3}
+  nextRecipe: {fileID: 11400000, guid: 48951045d8529a140b305e4800d512ae, type: 2}
+  obstaclePool:
+  - {fileID: 11400000, guid: f361793116e95ff42be699fa274256e9, type: 2}
+  - {fileID: 11400000, guid: 0b8e4692ee47e1743beea99f8fc20d1f, type: 2}
+  - {fileID: 11400000, guid: 510c004e8a805a847a362b96d7bea6f5, type: 2}
+  - {fileID: 11400000, guid: 8d4eab15172c509448662a0c8395d989, type: 2}
+  cupScale: {x: 4, y: 4, z: 4}
+  powerUpSpawnChance: 0.5
