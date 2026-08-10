@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LevelTwo_Recipe
   m_EditorClassIdentifier: Assembly-CSharp::DrinkRecipe
   drinkName: PeachLemonade
+  levelLabel: Level Two
   requiredIngredients:
   - ingredient: {fileID: 11400000, guid: b44b5b85813efaa49ad4ef777f4d063d, type: 2}
     amountNeeded: 1

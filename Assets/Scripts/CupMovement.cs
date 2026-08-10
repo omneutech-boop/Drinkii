@@ -3,20 +3,23 @@ using UnityEngine.InputSystem;
 
 public class CupMovement : MonoBehaviour
 {
-    public float minX = -2.5f;
-    public float maxX = 2.5f;
+    public float minX = -2f;
+    public float maxX = 1.31f;
+    private SpriteRenderer sr;
+
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
-        if (GameManager.Instance.cupMovementDisabled) return;
         Vector2? pointerScreenPos = null;
 
-        // Touch (mobile device)
         if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
         {
             pointerScreenPos = Touchscreen.current.primaryTouch.position.ReadValue();
         }
-        // Mouse (Editor testing)
         else if (Mouse.current != null && Mouse.current.leftButton.isPressed)
         {
             pointerScreenPos = Mouse.current.position.ReadValue();
@@ -28,7 +31,9 @@ public class CupMovement : MonoBehaviour
                 new Vector3(pointerScreenPos.Value.x, pointerScreenPos.Value.y, Camera.main.nearClipPlane + 10f)
             );
 
-            float clampedX = Mathf.Clamp(worldPos.x, minX, maxX);
+            float halfWidth = sr.bounds.extents.x;
+            float clampedX = Mathf.Clamp(worldPos.x, minX + halfWidth, maxX - halfWidth);
+
             transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
         }
     }

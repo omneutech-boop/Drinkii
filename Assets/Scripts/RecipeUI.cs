@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using System.Collections.Generic;
 
 public class RecipeUI : MonoBehaviour
@@ -12,26 +13,26 @@ public class RecipeUI : MonoBehaviour
 
     void Start()
     {
-         GameManager.Instance.OnRecipeLoaded += HandleRecipeLoaded;
-         GameManager.Instance.OnRecipeProgressChanged += RefreshUI;
-         BuildRows();
-         RefreshUI();
+        GameManager.Instance.OnRecipeLoaded += HandleRecipeLoaded;
+        GameManager.Instance.OnRecipeProgressChanged += RefreshUI;
+        BuildRows();
+        RefreshUI();
     }
 
     void OnDestroy()
-{
-    if (GameManager.Instance != null)
     {
-        GameManager.Instance.OnRecipeLoaded -= HandleRecipeLoaded;
-        GameManager.Instance.OnRecipeProgressChanged -= RefreshUI;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnRecipeLoaded -= HandleRecipeLoaded;
+            GameManager.Instance.OnRecipeProgressChanged -= RefreshUI;
+        }
     }
-}
 
-void HandleRecipeLoaded()
-{
-    BuildRows();
-    RefreshUI();
-}
+    void HandleRecipeLoaded()
+    {
+        BuildRows();
+        RefreshUI();
+    }
 
     void BuildRows()
     {
@@ -59,6 +60,21 @@ void HandleRecipeLoaded()
 
             Transform overlay = spawnedRows[i].transform.Find("CaughtOverlay");
             overlay.gameObject.SetActive(complete);
+
+            int caught = GameManager.Instance.GetCaughtCount(ingredient);
+            int needed = GetNeededAmount(ingredient);
+
+            TextMeshProUGUI amountText = spawnedRows[i].transform.Find("AmountText").GetComponent<TextMeshProUGUI>();
+            amountText.text = caught + "/" + needed;
         }
+    }
+
+    int GetNeededAmount(IngredientData ingredient)
+    {
+        foreach (var req in GameManager.Instance.currentRecipe.requiredIngredients)
+        {
+            if (req.ingredient == ingredient) return req.amountNeeded;
+        }
+        return 0;
     }
 }

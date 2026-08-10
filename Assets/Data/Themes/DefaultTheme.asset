@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DefaultTheme
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundTheme
   themeName: Default
-  wallSprite: {fileID: 3129998059859386450, guid: ea0b34253e31e9e44a1ecd2fb927282c, type: 3}
-  powerUpPanelSprite: {fileID: -185866397404839953, guid: 948721068c2c4914ab85d516a252a51a, type: 3}
-  ingredientPanelSprite: {fileID: 6963632049758755024, guid: 2c1067c1ba2f15946b8568cbea402562, type: 3}
+  wallSprite: {fileID: 3409182811461886215, guid: 74aec7d3f73ccee42bcb7c5d5dc10ce6, type: 3}
+  powerUpPanelSprite: {fileID: -3691917278346049850, guid: 874b27c375b5e7d49b402e53f0360c49, type: 3}
+  ingredientPanelSprite: {fileID: -764608795912549193, guid: ca3e34d6e99fa9f49ae9b299c5d429a8, type: 3}
+  topHudSprite: {fileID: -3691917278346049850, guid: 874b27c375b5e7d49b402e53f0360c49, type: 3}

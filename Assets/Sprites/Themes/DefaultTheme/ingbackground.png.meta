@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ea0b34253e31e9e44a1ecd2fb927282c
+guid: ca3e34d6e99fa9f49ae9b299c5d429a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3129998059859386450
-    second: thenewkitchentiles_0
+      213: -764608795912549193
+    second: ingbackground_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,12 +126,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: thenewkitchentiles_0
+      name: ingbackground_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 0
-        width: 64
+        width: 57
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 250a499e6acff6b20800000000000000
-      internalID: 3129998059859386450
+      spriteID: 7bc4e77e9509365f0800000000000000
+      internalID: -764608795912549193
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      thenewkitchentiles_0: 3129998059859386450
+      ingbackground_0: -764608795912549193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

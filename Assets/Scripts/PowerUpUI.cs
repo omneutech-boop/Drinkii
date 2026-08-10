@@ -47,7 +47,7 @@ public class PowerUpUI : MonoBehaviour
         {
             int count = GameManager.Instance.GetPowerUpCount(allPowerUpTypes[i]);
             TextMeshProUGUI countText = spawnedSlots[i].transform.Find("CountText").GetComponent<TextMeshProUGUI>();
-            countText.text = "x" + count;
+            countText.text = count.ToString();
         }
     }
 }

@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public int lives = 4;
     public bool gameActive = true;
 
+    public GameObject pauseScreen;
+    public bool isPaused = false;
+
     public GameObject winScreen;
     public GameObject gameOverScreen;
     public GameObject blackHeartOverlay;
@@ -18,6 +21,7 @@ public class GameManager : MonoBehaviour
     public bool obstaclesSlowed = false;
     public bool shieldActive = false;
     public bool ingredientsFrozen = false;
+    public bool catchesBlocked = false;
     public bool cupMovementDisabled = false;
     
     public bool moldyTomatoActive = false;
@@ -81,6 +85,9 @@ public class GameManager : MonoBehaviour
             LoseLife();
             return;
         }
+
+        if (catchesBlocked) return;
+
 
         if (!caughtCounts.ContainsKey(ingredient))
             caughtCounts[ingredient] = 0;
@@ -153,9 +160,12 @@ public class GameManager : MonoBehaviour
                 break;
 
             case PowerUpType.Freeze:
-            case PowerUpType.Bubble:
                 StartCoroutine(FlagRoutine(() => ingredientsFrozen = true, () => ingredientsFrozen = false, powerUp.duration));
                 break;
+
+            case PowerUpType.Bubble:
+               StartCoroutine(FlagRoutine(() => catchesBlocked = true, () => catchesBlocked = false, powerUp.duration));
+               break;
 
             case PowerUpType.MoldyTomato:
                 StartCoroutine(FlagRoutine(() => moldyTomatoActive = true, () => moldyTomatoActive = false, powerUp.duration));
@@ -278,4 +288,20 @@ PowerUpData FindExtraLifeInInventory()
         if (currentRecipe.nextRecipe != null)
             LoadRecipe(currentRecipe.nextRecipe);
     }
+
+    public void TogglePause()
+{
+    isPaused = !isPaused;
+
+    if (isPaused)
+    {
+        Time.timeScale = 0f;
+        if (pauseScreen != null) pauseScreen.SetActive(true);
+    }
+    else
+    {
+        Time.timeScale = 1f;
+        if (pauseScreen != null) pauseScreen.SetActive(false);
+    }
+}
 }
