@@ -30,10 +30,19 @@ public class GameManager : MonoBehaviour
     public float moldyMinXOverride = -5f;
     public float moldyMaxXOverride = 5f;
 
+    //xp points
+
+    public int totalCaughtThisLevel = 0;
+    public int totalMissedThisLevel = 0;
+    public int totalXP = 0; 
+
     public event System.Action OnRecipeProgressChanged;
     public event System.Action OnLivesChanged;
     public event System.Action OnRecipeLoaded;
     public event System.Action OnPowerUpInventoryChanged;
+
+    public event System.Action OnXPChanged;
+
 
     private Dictionary<IngredientData, int> caughtCounts = new Dictionary<IngredientData, int>();
     public Dictionary<PowerUpData, int> powerUpInventory = new Dictionary<PowerUpData, int>();
@@ -43,7 +52,16 @@ public class GameManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        totalXP = PlayerPrefs.GetInt("TotalXP", 0); // NEW
     }
+
+    void Start()
+{
+    if (currentRecipe != null)
+    {
+        LoadRecipe(currentRecipe);
+    }
+}
 
     public void LoadRecipe(DrinkRecipe newRecipe)
     {
@@ -52,11 +70,17 @@ public class GameManager : MonoBehaviour
         lives = 4;
         gameActive = true;
 
+        totalCaughtThisLevel = 0;
+        totalMissedThisLevel = 0;
+
         if (Cup.Instance != null)
         {
             if (newRecipe.cupFillStages.Length > 0)
                 Cup.Instance.SetFillSprite(newRecipe.cupFillStages[0]);
             Cup.Instance.SetScale(newRecipe.cupScale);
+            Cup.Instance.SetPosition(newRecipe.cupPosition);
+            Cup.Instance.SetMovementBounds(newRecipe.cupMinX, newRecipe.cupMaxX);
+
         }
 
         OnRecipeLoaded?.Invoke();
@@ -87,6 +111,8 @@ public class GameManager : MonoBehaviour
         }
 
         if (catchesBlocked) return;
+
+         totalCaughtThisLevel++;
 
 
         if (!caughtCounts.ContainsKey(ingredient))
@@ -241,8 +267,29 @@ PowerUpData FindExtraLifeInInventory()
             if (caught < req.amountNeeded) return;
         }
         gameActive = false;
+
+        int xpEarned = CalculateXP();
+        totalXP += xpEarned;
+        PlayerPrefs.SetInt("TotalXP", totalXP);
+        OnXPChanged?.Invoke();
+
+
         if (winScreen != null) winScreen.SetActive(true);
     }
+
+    int CalculateXP()
+{
+    int baseXP = 2;
+    int livesBonus = lives * 25;
+
+    float catchRate = (totalCaughtThisLevel + totalMissedThisLevel) > 0
+        ? (float)totalCaughtThisLevel / (totalCaughtThisLevel + totalMissedThisLevel)
+        : 1f;
+
+    int catchRateBonus = Mathf.RoundToInt(catchRate * 2);
+
+    return baseXP + livesBonus + catchRateBonus;
+}
 
     void UpdateCupVisual()
     {
@@ -304,4 +351,11 @@ PowerUpData FindExtraLifeInInventory()
         if (pauseScreen != null) pauseScreen.SetActive(false);
     }
 }
+
+    public void RegisterMiss()
+{
+    totalMissedThisLevel++;
+}
+
+
 }

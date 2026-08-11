@@ -1,44 +1,29 @@
 using UnityEngine;
-using System.Collections.Generic;
+using TMPro;
 
 public class LivesUI : MonoBehaviour
 {
-    public GameObject heartPrefab;
-    public Transform heartContainer;
+    private TextMeshProUGUI livesText;
 
-    private List<GameObject> hearts = new List<GameObject>();
+    void Awake()
+    {
+        livesText = GetComponent<TextMeshProUGUI>();
+    }
 
     void Start()
     {
-        GameManager.Instance.OnLivesChanged += RefreshHearts;
-        BuildHearts();
+        GameManager.Instance.OnLivesChanged += UpdateLives;
+        UpdateLives();
     }
 
     void OnDestroy()
     {
         if (GameManager.Instance != null)
-            GameManager.Instance.OnLivesChanged -= RefreshHearts;
+            GameManager.Instance.OnLivesChanged -= UpdateLives;
     }
 
-    void BuildHearts()
+    void UpdateLives()
     {
-        foreach (var h in hearts) Destroy(h);
-        hearts.Clear();
-
-        for (int i = 0; i < GameManager.Instance.lives; i++)
-        {
-            GameObject heart = Instantiate(heartPrefab, heartContainer);
-            hearts.Add(heart);
-        }
-    }
-
-    void RefreshHearts()
-    {
-        int currentLives = GameManager.Instance.lives;
-
-        for (int i = 0; i < hearts.Count; i++)
-        {
-            hearts[i].SetActive(i < currentLives);
-        }
+    livesText.text = GameManager.Instance.lives.ToString();
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 915e1f3556c33844882d7e94245f1318
+guid: 59f1ad2aa15030e42999e8378df25818
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6137636709244600678
-    second: popupcard_0
+      213: 1820097987899012207
+    second: roundrec_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: popupcard_0
+      name: roundrec_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 19
-        width: 97
-        height: 134
+        x: 4
+        y: 5
+        width: 53
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6610ce681144d2550800000000000000
-      internalID: 6137636709244600678
+      spriteID: f64bf190a79424910800000000000000
+      internalID: 1820097987899012207
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      popupcard_0: 6137636709244600678
+      roundrec_0: 1820097987899012207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelTwo_Recipe
   m_EditorClassIdentifier: Assembly-CSharp::DrinkRecipe
   drinkName: PeachLemonade
-  levelLabel: Level Two
+  levelLabel: LVL 02
   requiredIngredients:
   - ingredient: {fileID: 11400000, guid: b44b5b85813efaa49ad4ef777f4d063d, type: 2}
     amountNeeded: 1
@@ -37,5 +37,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b32f0db5306d5dd4589e267d52afc8f6, type: 2}
   - {fileID: 11400000, guid: 39de50c9ddbae9742a428c551765b420, type: 2}
   - {fileID: 11400000, guid: 77da02716452d2c499d48cce5e8a2eea, type: 2}
-  cupScale: {x: 2, y: 2, z: 2}
+  powerUpPool: []
+  powerDownPool: []
+  cupScale: {x: 1, y: 1, z: 1}
+  cupPosition: {x: -0.36, y: -3.27, z: 0}
+  cupMinX: -2.428957
+  cupMaxX: 1.562034
   powerUpSpawnChance: 0.9
+  fallSpeed: 3

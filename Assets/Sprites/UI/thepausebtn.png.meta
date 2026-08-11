@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -29067338892264604
     second: thepausebtn_0
+  - first:
+      213: -8205019808189154787
+    second: thepausebtn_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,10 +132,10 @@ TextureImporter:
       name: thepausebtn_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 16
-        width: 27
-        height: 31
+        x: 21
+        y: 15
+        width: 7
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,6 +146,28 @@ TextureImporter:
       bones: []
       spriteID: 46bb2c6c86bb89ff0800000000000000
       internalID: -29067338892264604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thepausebtn_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 15
+        width: 7
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a77ddd4f9e12e80800000000000000
+      internalID: -8205019808189154787
       vertices: []
       indices: 
       edges: []
@@ -162,6 +187,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       thepausebtn_0: -29067338892264604
+      thepausebtn_1: -8205019808189154787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

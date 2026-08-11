@@ -20,7 +20,14 @@ public class DrinkRecipe : ScriptableObject
     public List<PowerUpData> powerUpPool;   // good power-ups available this level
     public List<PowerUpData> powerDownPool; // power-downs available this level
     public Vector3 cupScale = Vector3.one; 
+    public Vector3 cupPosition = Vector3.one;
+
+    public float cupMinX = -2f;
+    public float cupMaxX = 1.31f;
     public float powerUpSpawnChance = 0.1f; 
+
+    public float fallSpeed = 3f;
+
 
     
 

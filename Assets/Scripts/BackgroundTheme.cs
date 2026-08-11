@@ -7,6 +7,4 @@ public class BackgroundTheme : ScriptableObject
     public Sprite wallSprite;
     public Sprite powerUpPanelSprite;
     public Sprite ingredientPanelSprite;
-    public Sprite topHudSprite;
-
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelOne_Recipe
   m_EditorClassIdentifier: Assembly-CSharp::DrinkRecipe
   drinkName: Vanilla Milkshake
-  levelLabel: Level One
+  levelLabel: LVL 01
   requiredIngredients:
   - ingredient: {fileID: 11400000, guid: aefee2c3d5775234ea21c32125b7399d, type: 2}
     amountNeeded: 1
@@ -42,5 +42,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 898d20cd31104584d8cb411e27dd0382, type: 2}
   - {fileID: 11400000, guid: 2afde6c499aeb714cad3c4893f36114d, type: 2}
   - {fileID: 11400000, guid: 42e83e5f99745204ea225bcfd08e355b, type: 2}
-  cupScale: {x: 4, y: 4, z: 4}
+  cupScale: {x: 2, y: 2, z: 2}
+  cupPosition: {x: -0.36, y: -3.07, z: 0}
+  cupMinX: -2.428957
+  cupMaxX: 1.562034
   powerUpSpawnChance: 1
+  fallSpeed: 3

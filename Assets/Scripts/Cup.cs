@@ -21,6 +21,11 @@ public void SetScale(Vector3 scale)
     transform.localScale = scale;
 }
 
+public void SetPosition(Vector3 position)
+{
+    transform.localPosition = position;
+}
+
    void OnTriggerEnter2D(Collider2D other)
 {
     IngredientFall ingredient = other.GetComponent<IngredientFall>();
@@ -41,5 +46,15 @@ public void SetScale(Vector3 scale)
     }
 
     Destroy(ingredient.gameObject);
+}
+
+public void SetMovementBounds(float minX, float maxX)
+{
+    CupMovement movement = GetComponent<CupMovement>();
+    if (movement != null)
+    {
+        movement.minX = minX;
+        movement.maxX = maxX;
+    }
 }
 }

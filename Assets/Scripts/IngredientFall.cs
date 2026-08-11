@@ -19,6 +19,7 @@ public class IngredientFall : MonoBehaviour
         data = ingredientData;
         powerUpData = null;
         sr.sprite = data.sprite;
+        fallSpeed = GameManager.Instance.currentRecipe.fallSpeed; 
         if (pulse != null) pulse.enabled = false;
     }
 
@@ -27,8 +28,7 @@ public class IngredientFall : MonoBehaviour
     powerUpData = powerUp;
     data = null;
     sr.sprite = powerUp.sprite;
-    Debug.Log("InitializePowerUp called for: " + powerUp.powerUpName + " | sprite null? " + (powerUp.sprite == null));
-
+    fallSpeed = GameManager.Instance.currentRecipe.fallSpeed;
     if (pulse != null)
     {
         pulse.enabled = true;
@@ -50,6 +50,13 @@ public class IngredientFall : MonoBehaviour
 
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        if (transform.position.y < -6f) Destroy(gameObject);
+         if (transform.position.y < -6f)
+    {
+        if (data != null && !data.isObstacle)
+            GameManager.Instance.RegisterMiss();
+
+        Destroy(gameObject);
+    }
+
     }
 }
